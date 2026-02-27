@@ -1,0 +1,100 @@
+<div class="app">
+  <header class="header">
+    <h1>Tip Split</h1>
+    <p>Card + Cash + Delivery → Fast Calculation</p>
+  </header>
+
+  <section class="panel">
+    <div class="inputs">
+      <div class="field">
+        <label for="cardTip">Card Tip</label>
+        <div class="money">
+          <span>$</span>
+          <input id="cardTip" type="number" inputmode="decimal" step="0.01" placeholder="0.00" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="cashTip">Cash Tip</label>
+        <div class="money">
+          <span>$</span>
+          <input id="cashTip" type="number" inputmode="decimal" step="0.01" placeholder="0.00" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="deliveryTip">Delivery Tip</label>
+        <div class="money">
+          <span>$</span>
+          <input id="deliveryTip" type="number" inputmode="decimal" step="0.01" placeholder="0.00" />
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="calcBtn" type="button">Calculate</button>
+      <button id="resetBtn" type="button" class="ghost">Reset</button>
+    </div>
+  </section>
+
+  <section class="panel results" aria-live="polite">
+    <h2>Results</h2>
+
+    <div class="grid">
+      <div class="row">
+        <span class="k">Total</span>
+        <span class="v" id="totalOut">$0.00</span>
+      </div>
+
+      <div class="row">
+        <span class="k">Tip Out (BOH · 20%)</span>
+        <span class="v" id="kitchenOut">$0.00</span>
+      </div>
+
+      <!-- 중요: Tax 하이라이트 (soft) -->
+      <div class="row highlight-soft">
+        <span class="k">Tax (10% of Tip Out)</span>
+        <span class="v" id="taxOut">$0.00</span>
+      </div>
+
+      <div class="row">
+        <span class="k">BOH Tip</span>
+        <span class="v" id="kitchenNetOut">$0.00</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- 중요: Parts 하이라이트 -->
+      <div class="row highlight">
+        <span class="k">10 Parts Tip</span>
+        <span class="v" id="split10">$0.00</span>
+      </div>
+
+      <div class="row highlight">
+        <span class="k">9 Parts Tip</span>
+        <span class="v" id="split9">$0.00</span>
+      </div>
+
+      <div class="row highlight">
+        <span class="k">5 Parts Tip</span>
+        <span class="v" id="split5">$0.00</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- 중요: Server Tip 하이라이트 (strong) -->
+      <div class="row totalRow highlight-strong">
+        <span class="k">Server Tip</span>
+        <span class="v" id="myTipOut">$0.00</span>
+      </div>
+    </div>
+
+    <ul class="note">
+      <li>Tip Out = Total × 0.20</li>
+      <li>Tax = Tip Out × 0.10</li>
+      <li>BOH Tip = Tip Out − Tax</li>
+      <li>Split = 10 : 9 : 5 (24 parts)</li>
+      <li>Server Tip = Total − (Tip Out + Tax)</li>
+    </ul>
+  </section>
+</div>
