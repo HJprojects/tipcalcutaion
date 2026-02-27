@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Tip Split Calculator</title>
+  <meta name="description" content="Restaurant tip-out calculator for BOH and server breakdown." />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
 <div class="app">
   <header class="header">
     <h1>Tip Split</h1>
@@ -51,7 +65,6 @@
         <span class="v" id="kitchenOut">$0.00</span>
       </div>
 
-      <!-- 중요: Tax 하이라이트 (soft) -->
       <div class="row highlight-soft">
         <span class="k">Tax (10% of Tip Out)</span>
         <span class="v" id="taxOut">$0.00</span>
@@ -64,7 +77,6 @@
 
       <div class="divider"></div>
 
-      <!-- 중요: Parts 하이라이트 -->
       <div class="row highlight">
         <span class="k">10 Parts Tip</span>
         <span class="v" id="split10">$0.00</span>
@@ -82,7 +94,6 @@
 
       <div class="divider"></div>
 
-      <!-- 중요: Server Tip 하이라이트 (strong) -->
       <div class="row totalRow highlight-strong">
         <span class="k">Server Tip</span>
         <span class="v" id="myTipOut">$0.00</span>
@@ -98,3 +109,7 @@
     </ul>
   </section>
 </div>
+
+<script src="script.js"></script>
+</body>
+</html>
