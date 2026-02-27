@@ -1,0 +1,240 @@
+/* CSS */
+:root {
+  --bg: #0b0c10;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel2: rgba(255, 255, 255, 0.08);
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.6);
+  --line: rgba(255, 255, 255, 0.12);
+  --accent: #ffffff;
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  background: radial-gradient(1200px 700px at 20% 0%, rgba(255,255,255,0.12), transparent 60%),
+              radial-gradient(900px 600px at 80% 20%, rgba(255,255,255,0.08), transparent 55%),
+              var(--bg);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 28px 14px;
+}
+
+.app {
+  width: min(720px, 100%);
+  display: grid;
+  gap: 14px;
+}
+
+.header {
+  padding: 8px 6px;
+}
+.header h1 {
+  margin: 0;
+  letter-spacing: -0.02em;
+  font-size: 28px;
+}
+.header p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.panel {
+  background: linear-gradient(180deg, var(--panel2), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .inputs { grid-template-columns: 1fr; }
+}
+
+.field label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.money {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.18);
+}
+
+.money span {
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.money input {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  padding: 12px 12px;
+  font-size: 16px;
+}
+
+.actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+button {
+  border: 1px solid var(--line);
+  background: var(--accent);
+  color: #0b0c10;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.06s ease, opacity 0.2s ease;
+}
+button:hover { opacity: 0.95; }
+button:active { transform: translateY(1px); }
+button.ghost {
+  background: transparent;
+  color: var(--text);
+}
+
+.results h2 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(0,0,0,0.16);
+}
+
+.row .k {
+  color: var(--muted);
+  font-size: 13px;
+}
+.row .v {
+  font-variant-numeric: tabular-nums;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 2px 0;
+  border-radius: 999px;
+}
+
+.totalRow {
+  background: rgba(255,255,255,0.08);
+}
+.note {
+  margin: 12px 2px 0;
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/*
+.highlight-soft,
+.highlight,
+.highlight-strong{
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-soft::before,
+.highlight::before,
+.highlight-strong::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at left,
+    rgba(255,255,255,0.08),
+    transparent 60%);
+  pointer-events: none;
+}
+
+.highlight-strong::before{
+  background: radial-gradient(circle at left,
+    rgba(255,255,255,0.15),
+    transparent 65%);
+}
+
+.highlight-strong .v{
+  font-weight: 900;
+}
+*/
+
+.highlight-soft,
+.highlight,
+.highlight-strong{
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-soft::before,
+.highlight::before,
+.highlight-strong::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(255,255,255,0.12) 0%,
+    rgba(255,255,255,0.06) 35%,
+    rgba(255,255,255,0.02) 65%,
+    transparent 100%
+  );
+}
+
+/* Server Tip 강조 */
+.highlight-strong::before{
+  background: linear-gradient(
+    to top,
+    rgba(255,255,255,0.20) 0%,
+    rgba(255,255,255,0.08) 40%,
+    rgba(255,255,255,0.03) 70%,
+    transparent 100%
+  );
+}
+
+.highlight-strong .v{
+  font-weight: 900;
+}
